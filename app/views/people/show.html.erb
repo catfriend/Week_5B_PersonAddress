@@ -1,0 +1,22 @@
+<h1><%= @person.name %></h1>
+<div>
+  Phone: <%= @person.phone %>
+</div>
+<% if @address %>
+  <div>
+    Address: <%= @address.street_address %>
+  </div>
+  <div>
+    City: <%= @address.city %>
+  </div>
+  <div>
+    State: <%= @address.state %>
+  </div>
+  <div>
+    Zip Code: <%= @address.zip_code %>
+  </div>
+  <% end %>
+  <%= link_to "New Person", new_person_path %>
+
+
+

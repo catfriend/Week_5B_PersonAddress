@@ -1,0 +1,33 @@
+<h1>People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @people.each do |person| %>
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.phone %></td>
+    <td>
+      <% if person.address.nil? %>
+      No City
+      <% else %>
+      <%=person.address.city %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to "Show", person %> |
+      <%= link_to "Edit", edit_person_path(person) %> |
+      <%= link_to "Delete", person, method: :delete, confirm: 'Are you sure you want to do this?' %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add Person", new_person_path %>
